@@ -20,6 +20,7 @@
 		24AD68BE28AF047500C08ACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24AD68BC28AF047500C08ACA /* Main.storyboard */; };
 		24AD68C028AF047800C08ACA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24AD68BF28AF047800C08ACA /* Assets.xcassets */; };
 		24AD68C328AF047800C08ACA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24AD68C128AF047800C08ACA /* LaunchScreen.storyboard */; };
+		251B8945A64BBF678C49BA00 /* Pods_mvvm_coordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3273FFF7A1E3A26776FE6B22 /* Pods_mvvm_coordinator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,9 @@
 		24AD68BF28AF047800C08ACA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		24AD68C228AF047800C08ACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24AD68C428AF047800C08ACA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3273FFF7A1E3A26776FE6B22 /* Pods_mvvm_coordinator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mvvm_coordinator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FB45583F662F975C9957888 /* Pods-mvvm-coordinator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvm-coordinator.release.xcconfig"; path = "Target Support Files/Pods-mvvm-coordinator/Pods-mvvm-coordinator.release.xcconfig"; sourceTree = "<group>"; };
+		FDE362026503B792151AC222 /* Pods-mvvm-coordinator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvm-coordinator.debug.xcconfig"; path = "Target Support Files/Pods-mvvm-coordinator/Pods-mvvm-coordinator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				251B8945A64BBF678C49BA00 /* Pods_mvvm_coordinator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +81,8 @@
 			children = (
 				24AD68B528AF047500C08ACA /* mvvm-coordinator */,
 				24AD68B428AF047500C08ACA /* Products */,
+				623FCBF3AF99664C7618A3C9 /* Pods */,
+				C5F0117457D01593BA374662 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +111,23 @@
 			path = "mvvm-coordinator";
 			sourceTree = "<group>";
 		};
+		623FCBF3AF99664C7618A3C9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FDE362026503B792151AC222 /* Pods-mvvm-coordinator.debug.xcconfig */,
+				3FB45583F662F975C9957888 /* Pods-mvvm-coordinator.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C5F0117457D01593BA374662 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3273FFF7A1E3A26776FE6B22 /* Pods_mvvm_coordinator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -111,9 +135,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24AD68C728AF047800C08ACA /* Build configuration list for PBXNativeTarget "mvvm-coordinator" */;
 			buildPhases = (
+				F066762499777E8AA25E1E24 /* [CP] Check Pods Manifest.lock */,
 				24AD68AF28AF047500C08ACA /* Sources */,
 				24AD68B028AF047500C08ACA /* Frameworks */,
 				24AD68B128AF047500C08ACA /* Resources */,
+				79524F6C2AB73524006E2AC2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -169,6 +195,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		79524F6C2AB73524006E2AC2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\n# Adds support for Apple Silicon brew directory\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftlint >/dev/null; then\n  swiftlint autocorrect --format\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		F066762499777E8AA25E1E24 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mvvm-coordinator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		24AD68AF28AF047500C08ACA /* Sources */ = {
@@ -326,6 +394,7 @@
 		};
 		24AD68C828AF047800C08ACA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDE362026503B792151AC222 /* Pods-mvvm-coordinator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -339,6 +408,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -354,6 +424,7 @@
 		};
 		24AD68C928AF047800C08ACA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FB45583F662F975C9957888 /* Pods-mvvm-coordinator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -367,6 +438,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
